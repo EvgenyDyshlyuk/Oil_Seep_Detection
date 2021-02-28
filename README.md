@@ -41,16 +41,13 @@ Convolutional neural nets are not scale-invariant. For example, if one trains on
 - BCELoss takes into account false positives (FP) - so not a good metric per se for segmentation tasks with a lot of background (as here)
 - Dice (doesn't take into accout FP) is a good metric for imbalanced datasets
 - Combo loss DiceBCELoss (Dice + weighted BCE) with small bce weight is a good way to go forward - exploits good convergence from BCE and concentrates on Dice
-- Even better way is to use Focal Tversky loss - which helps to make attention on small segmentation masks and helps fighting imbalance problem
-
-
+- Even better way is to use Focal Tversky loss - which helps to make attention on small segmentation masks and helps fighting imbalance problem. 2018 article A Novel Focal Tversky loss function with improved Attention U-Net for lesion segmentation (https://arxiv.org/abs/1810.07842). (Or even a newer and advanced version from 2021, which gives even more control A Mixed Focal Loss Function for Handling Class Imbalanced Medical Image Segmentation (https://arxiv.org/abs/2102.04525) - was not used here)
 
 - Here I used DiceBCELoss and FocalTversky.
 - I used BCELoss and DiceLoss as an additional metric to monitor training - these simple metrics help to understand what's going on in trainig.
 
-2018 article A Novel Focal Tversky loss function with improved Attention U-Net for lesion segmentation (https://arxiv.org/abs/1810.07842)
-
-
-
 ## Training
 - Training Done on EC2 GPU (p2.xlarge)
+- First I solved for a simpler problem with single class (all classes merged together). 
+
+
