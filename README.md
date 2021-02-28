@@ -54,7 +54,8 @@ In this particular project, I don't think image augmentation by random resizing 
 ### Single class
 - First I solved for a simpler problem with single class (all classes merged together).
 - About 30 epochs were done and a good convergence was obtained. FocalTversky Loss showed much better results on speed of convergence than DiceBCELoss (which was also working but not as good). (see below). Although, apparently, could get better results, stopped with single class at this. 
-- 
+
+
 ![**Single class convergence](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/0_3_SingleClass.png)
 ### Multi-class
 
@@ -65,6 +66,9 @@ In this particular project, I don't think image augmentation by random resizing 
 
 - Training could go further because both train and val errors continue to improve but I did not have more time for this.
 - As expected with such an imbalanced dataset - class imbalance is a big problem - all predictions are of the dominant class 1 (see example of image-mask-prediction below). Further training would possibly help fight the problem with the imbalance, and if not, I would probably (after full convergence) try using class weights to force the model to predict other classes. Maybe a better (easier to control for sure) process would be to train 7 different models on each of the classes separetly and blend them together.
+
+
 ![**Image mask prediction](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/Image_mask_prediction.png)
+
 
 # It was real fun to work on this problem, all the best to you reader!
