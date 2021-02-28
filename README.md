@@ -51,11 +51,16 @@ Convolutional neural nets are not scale-invariant. For example, if one trains on
 
 ### Single class
 - First I solved for a simpler problem with single class (all classes merged together).
-- About 20 epochs were done and a good convergence was obtained. FocalTversky Loss showed much better results on speed of convergence than DiceBCELoss (which was also working but not as good). See below:
+- About 30 epochs were done and a good convergence was obtained. FocalTversky Loss showed much better results on speed of convergence than DiceBCELoss (which was also working but not as good). (see below). Although, apparently, could get better results, stopped with single class at this. 
 - 
 ![**Single class convergence](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/0_3_SingleClass.png)
 ### Multi-class
-- Multi-class
-- ![**Multi-class convergence](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/0_4_Multiple%20FT%20Loss%20convergence.png)
 
+- Multi-class training proved to be more difficult - the task did not start to converge with FTLoss directly, so I trained with a combo DiceBCELoss (which seem to be very robust) for a while and switched to FTLoss later.
+- Training was done in several sequential runs with the same model being trained. About 200 epochs were used (see below). See "Journal of training experiments.txt" for more details.
+
+![**Multi-class convergence](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/0_4_Multiple%20FT%20Loss%20convergence.png)
+
+- Training could go further because both train and val errors continue to improve but I did not have more time for this.
+- 
 
