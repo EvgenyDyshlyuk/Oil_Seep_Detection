@@ -27,12 +27,29 @@ Convolutional neural nets are not scale-invariant. For example, if one trains on
 - test images are not augmented
 
 ## Loss
-- The problem is highly imbalanced because the masks are quite sparse in this dataset (1/100). 
-- High imbalance on learning classes:
+- The problem is highly imbalanced because the masks are quite sparse in this dataset (masks/background ~= 1/100). 
+- High imbalance on learning classes (see below):
+
 ![**Class Imbalance](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/class_imbalance.png)
 
-2018 article A Novel Focal Tversky loss function with improved Attention U-Net for lesion segmentation (https://arxiv.org/abs/1810.07842)
+- Good short description of image segmentation losses (https://towardsdatascience.com/dealing-with-class-imbalanced-image-datasets-1cbd17de76b5)
+- Good implementation (with extra unused parameters - so removed here) (https://www.kaggle.com/bigironsphere/loss-function-library-keras-pytorch)
+- Different Losses exist (see below):
+
 ![**U-Net](https://github.com/EvgenyDyshlyuk/Image_Segmentation_Capstone_Project/blob/master/figures/loss.png)
+
+- BCELoss takes into account false positives (FP) - so not a good metric per se for segmentation tasks with a lot of background (as here)
+- Dice (doesn't take into accout FP) is a good metric for imbalanced datasets
+- Combo loss DiceBCELoss (Dice + weighted BCE) with small bce weight is a good way to go forward - exploits good convergence from BCE and concentrates on Dice
+- Even better way is to use Focal Tversky loss - which helps to make attention on small segmentation masks and helps fighting imbalance problem
+
+
+
+- Here I used DiceBCELoss and FocalTversky.
+- I used BCELoss and DiceLoss as an additional metric to monitor training - these simple metrics help to understand what's going on in trainig.
+
+2018 article A Novel Focal Tversky loss function with improved Attention U-Net for lesion segmentation (https://arxiv.org/abs/1810.07842)
+
 
 
 ## Training
