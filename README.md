@@ -29,7 +29,7 @@ Convolutional neural nets are not scale-invariant. For example, if one trains on
 ## Loss
 - The problem is highly imbalanced because the masks are quite sparse in this dataset (1/100). 
 - High imbalance on learning classes:
-![**Class Imbalance](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/image_and_mask.png)
+![**Class Imbalance](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/class_imbalance.png)
 
 2018 article A Novel Focal Tversky loss function with improved Attention U-Net for lesion segmentation (https://arxiv.org/abs/1810.07842)
 ![**U-Net](https://github.com/EvgenyDyshlyuk/Image_Segmentation_Capstone_Project/blob/master/figures/loss.png)
