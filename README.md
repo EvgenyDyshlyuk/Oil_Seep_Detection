@@ -2,8 +2,9 @@
 ### This is a personal project on multiclass image segmentation problem of oil and gas see seepages identification.
 
 ## Data
-790 256X256 images (Tiff I:16 unsigned integer 16 bit) and masks (L-mode = 8 bit grayscale) are provided.
-![**Example of Image and Mask](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/image_and_mask.png)
+- 790 256X256 images (Tiff I:16 unsigned integer 16 bit) and masks (L-mode = 8 bit grayscale) are provided.
+
+![**Image and Mask](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/image_and_mask.png)
 
 ## Architechture
 Fully convolutional U-Net architechture was selected for this task. 
