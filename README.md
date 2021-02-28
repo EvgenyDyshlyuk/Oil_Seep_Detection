@@ -1,5 +1,5 @@
 # Oil and Gas Seep Detection Segmentation Project
-### This is a personal project on multiclass image segmentation problem of oil and gas see seepages identification.
+### This is a personal project on multiclass image segmentation problem for oil and gas see seepages identification.
 
 ## Data
 - images from SAR (Synthetic-aperture radar https://en.wikipedia.org/wiki/Synthetic-aperture_radar) are provided for training together with annotated masks images.
