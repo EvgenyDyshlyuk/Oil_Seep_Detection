@@ -1,0 +1,4 @@
+Binary classification - all classes merged to 1
+1. 10 epochs, lr = 3e-5, DiceBCELoss (bce_weight = 0.01). Val = 0.5
+2. 10 epochs, lr = 3e-5, DiceBCELoss (bce_weight = 0.001). Val = 0.55
+3. 30 epochs, lr = 3e-5, DiceBCELoss (bce_weight = 0.001). Val = 0.3 still can improve - saved

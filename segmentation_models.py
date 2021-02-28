@@ -63,9 +63,6 @@ class UNet(nn.Module):
 from torchvision import models
 base_model = models.resnet18(pretrained=False)
 
-n_channels = 3
-base_model.conv1 = torch.nn.Conv1d(3, 64, (7, 7), (2, 2), (3, 3), bias=False)
-
 def convrelu(in_channels, out_channels, kernel, padding):
     return nn.Sequential(
         nn.Conv2d(in_channels, out_channels, kernel, padding=padding),

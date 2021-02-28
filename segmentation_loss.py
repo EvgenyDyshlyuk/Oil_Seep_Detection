@@ -7,6 +7,27 @@ import torch.nn.functional as F
 # Good description
 # https://towardsdatascience.com/dealing-with-class-imbalanced-image-datasets-1cbd17de76b5
 
+
+
+
+class BCELoss(nn.Module):
+    def __init__(self):
+        super(BCELoss, self).__init__()
+
+    def forward(self, preds, targets):
+
+        #comment out if your model contains a sigmoid or equivalent activation layer
+        preds = F.sigmoid(preds)       
+        
+        #flatten label and prediction tensors
+        preds = preds.view(-1)
+        targets = targets.view(-1)
+ 
+        bce = F.binary_cross_entropy(preds, targets, reduction='mean')
+        
+        return bce
+
+
 class DiceLoss(nn.Module):
     def __init__(self):
         super(DiceLoss, self).__init__()
@@ -46,6 +67,29 @@ class DiceBCELoss(nn.Module):
         dice_bce = bce*self.bce_weight + (1-self.bce_weight)*dice_loss
         
         return dice_bce
+
+class IoULoss(nn.Module):
+    def __init__(self):
+        super(IoULoss, self).__init__()
+
+    def forward(self, preds, targets, smooth=1):
+        
+        #comment out if your model contains a sigmoid or equivalent activation layer
+        preds = F.sigmoid(preds)       
+        
+        #flatten label and prediction tensors
+        preds = preds.view(-1)
+        targets = targets.view(-1)
+        
+        #intersection is equivalent to True Positive count
+        #union is the mutually inclusive area of all labels & predictions 
+        intersection = (preds * targets).sum()
+        total = (preds + targets).sum()
+        union = total - intersection 
+        
+        IoU = (intersection + smooth)/(union + smooth)
+                
+        return 1 - IoU
 
 
 class FocalTverskyLoss(nn.Module):
