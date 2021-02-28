@@ -1,4 +1,15 @@
 Binary classification - all classes merged to 1
 1. 10 epochs, lr = 3e-5, DiceBCELoss (bce_weight = 0.01). Val = 0.5
 2. 10 epochs, lr = 3e-5, DiceBCELoss (bce_weight = 0.001). Val = 0.55
-3. 30 epochs, lr = 3e-5, DiceBCELoss (bce_weight = 0.001). Val = 0.3 still can improve - saved
+2. 10 epochs, lr = 3e-5, FT (alpha = 0.7, beta = 0.3, gamma = 1.33). Val = 0.4
+
+Multiclass classification 7 classes
+1. 10 epochs, lr = 3e-5, FT (alpha = 0.7, beta = 0.3, gamma = 1.33)
+	diverged to 1 - decreased the lr, changed to DiceBCE
+2. 10 epochs, lr = 1e-5, DiceBCELoss (bce_weight = 0.01). Val = 0.75
+	Quick convergece - but jumping - try FTLoss
+3. 30 epochs, lr = 1e-5, FT (alpha = 0.7, beta = 0.3, gamma = 1.33) Val = 0.55
+	Slow steady convergence - try return to DiceBCELoss
+4. 20 epochs lr = 1e-5, DiceBCELoss (weight=0.01) 
+	converging slower than FTLoss, switch back to FT
+5. 
