@@ -58,8 +58,8 @@ In this particular project, I don't think image augmentation by random resizing 
 ![**Single class convergence](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/0_3_SingleClass.png)
 ### Multi-class
 
-- Multi-class training proved to be more difficult - the task did not start to converge with FTLoss directly, so I trained with a combo DiceBCELoss (which seem to be very robust) for a while and switched to FTLoss later.
-- Training was done in several sequential runs with the same model being trained. About 200 epochs were used (see below). See "Journal of training experiments.txt" for more details.
+- Multi-class training proved to be more difficult - the task did not start to converge with FTLoss directly, so I trained with a combo DiceBCELoss (which seem to be very robust) for a while and switched to FTLoss later (FTLoss was better, just did not work good at the start).
+- Training was done in several sequential runs with the same model being trained. About 200 epochs  were used (1.5 min/epoch on EC2 p2.xlarge) (see train/val curves below). See "Journal of training experiments.txt" for more details.
 
 ![**Multi-class convergence](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/0_4_Multiple%20FT%20Loss%20convergence.png)
 
