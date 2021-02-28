@@ -25,7 +25,8 @@ Convolutional neural nets are not scale-invariant. For example, if one trains on
 
 In this particular project, I don't think image augmentation by random resizing can help (would be worth checking, but I didn't). The obtained images are most definitly satelite images (satelites are quite far and normally on the same orbit/distance - so no difference in distance/zoom). The physics involved includes waves on the sea (needs some medium speed winds) - so size of waves matters - zoom is probably not good because of this as well. The image contrast is mainly due to different density and surface tension on the oil-air and gas-air interface vs normal water-air interface. Due to different surface tension the shape of waves changes and the contrast arize. So only rotation (180 deg) and horizontal flip (no need for vertical because horizontal and rotation by 180 cover it) was used for augmentation. Other possibility is to pad images and use random crop, but should not make much difference because fully convolutional CNNs should be invariant to feature location on the image.
 - train images are iaugmented by: random rotation (180 deg), and random horizontal flip
-- test images are not augmented
+- val images are not augmented
+- Train/Val split = 80%/20% used
 
 ## Loss
 - The problem is highly imbalanced because the masks are quite sparse in this dataset (masks/background ~= 1/100). 
