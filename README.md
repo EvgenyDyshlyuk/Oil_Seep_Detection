@@ -1,6 +1,8 @@
 # Oil and Gas Seep Detection Segmentation Project
 
 
+![**Image and Mask](https://github.com/EvgenyDyshlyuk/Oil_Seep_Detection/blob/master/figures/image_and_mask.png)
+
 ## Data
 790 256X256 images (Tiff I:16 unsigned integer 16 bit) and masks (L-mode = 8 bit grayscale) 
 
