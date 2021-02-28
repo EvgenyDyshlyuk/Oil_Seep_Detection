@@ -13,7 +13,7 @@
 Famous 2015 (https://arxiv.org/abs/1505.04597) fully convolutional U-Net architechture was selected for this task: 
 ![**U-Net](https://github.com/EvgenyDyshlyuk/Image_Segmentation_Capstone_Project/blob/master/figures/Unet.png)
 
-- There are other approaches for Image Segmentation, but full convolutional nets are still very efficient/popular.
+- There are other approaches for Image Segmentation, but fully-convolutional nets are still very efficient/popular.
 - Some improved approaches for UNet architecture exist as well, including such as when UNet is used on top of e.g. ResNet (pretrained or not), or other famous solutions for better feature extraction.
 - Here I used simple UNet for simplicity at the start of the work on the problem.
 
